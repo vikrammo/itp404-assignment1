@@ -1,0 +1,45 @@
+var reviews = [
+  { id: 1, title: 'Terrible!', stars: 1, cost: 'high' },
+  { id: 2, title: 'Decent place', stars: 3, cost: 'average' },
+  { id: 3, title: 'I would come again', stars: 3.5, cost: 'average' },
+  { id: 4, title: 'So good, and cheap!', stars: 4, cost: 'low-average' },
+  { id: 5, title: 'Good, but pricey!', stars: 4, cost: 'high' }
+];
+
+function classifyReviewsByCost(reviews) {
+
+  var numHigh = reviews.reduce(function(a,movie)
+    {
+
+    a = a + (movie.cost == 'high')
+    return a;
+
+  }, 0);
+
+    var numAvg = reviews.reduce(function(b,movie)
+    {
+
+    b = b + (movie.cost == 'average')
+    return b;
+
+  }, 0);
+
+
+    var numLow = reviews.reduce(function(c,movie)
+    {
+
+    c = c + (movie.cost == 'low-average')
+    return c;
+
+  }, 0);
+
+  return {
+    high: numHigh,
+    average: numAvg,
+    low: numLow
+
+  }
+
+}
+
+console.log(classifyReviewsByCost(reviews));
